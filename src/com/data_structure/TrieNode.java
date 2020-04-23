@@ -18,7 +18,7 @@ public class TrieNode {
         }
     }
 
-    static void insert(TrieNode root, String key) {
+    static void insert(TrieNode root, String key) { // O(key_length)
         int index;
         TrieNode rootCopy = root;
         key = key.toLowerCase();
@@ -33,7 +33,7 @@ public class TrieNode {
         rootCopy.endOfWord = true;
     }
 
-    static boolean search(TrieNode root, String key) {
+    static boolean search(TrieNode root, String key) { // O(key_length)
         int index;
         TrieNode rootCopy = root;
         for (index = 0; index < key.length(); ++index) {
@@ -49,7 +49,7 @@ public class TrieNode {
     static boolean isEmpty(TrieNode root) {
         int index;
         for (index = 0; index < alphabetSize; ++index) {
-            if (root.children[alphabetSize] != null) {
+            if (root.children[index] != null) {
                 return false;
             }
         }
@@ -68,6 +68,35 @@ public class TrieNode {
         }
 
         rootCopy.endOfWord = false;
+    }
+
+    static boolean delete(TrieNode root, String key, int index) {
+        System.out.println(index);
+        if (root == null) {
+            System.out.println("dsa");
+            return false;
+        } else if (index == key.length()) {
+            System.out.println("sadsad");
+            if (!root.endOfWord) {
+                return false;
+            }
+            root.endOfWord = false;
+            System.out.println("ww");
+            System.out.println(isEmpty(root));
+            return isEmpty(root);
+        }
+        int alphabetIndex = key.charAt(index) - 'a';
+        TrieNode trieNode = root.children[alphabetIndex];
+        if (trieNode == null) {
+            return false;
+        }
+        boolean deleteCurrentNode = delete(trieNode, key, index + 1) && !trieNode.endOfWord;
+        if (deleteCurrentNode) {
+            root.children[alphabetIndex] = null;
+            return isEmpty(trieNode);
+        }
+        return false;
+
     }
 
 }

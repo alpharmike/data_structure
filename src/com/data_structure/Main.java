@@ -13,7 +13,8 @@ public class Main {
         TrieNode root = new TrieNode();
         TrieNode.insert(root, keys.get(0));
         TrieNode.insert(root, keys.get(1));
-        TrieNode.delete(root, keys.get(1));
-        System.out.println(TrieNode.search(root, keys.get(0)));
+//        TrieNode.delete(root, keys.get(1), 0);
+//        System.out.println(TrieNode.search(root, keys.get(0)));
+        System.out.println(TrieNode.delete(root, "wor", 0));
     }
 }
