@@ -46,4 +46,28 @@ public class TrieNode {
         return (rootCopy.endOfWord);
     }
 
+    static boolean isEmpty(TrieNode root) {
+        int index;
+        for (index = 0; index < alphabetSize; ++index) {
+            if (root.children[alphabetSize] != null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static void delete(TrieNode root, String key) {
+        int index;
+        TrieNode rootCopy = root;
+        for (index = 0; index < key.length(); ++index) {
+            int alphabetIndex = key.charAt(index) - 'a';
+            if (rootCopy.children[alphabetIndex] == null) {
+                return;
+            }
+            rootCopy = rootCopy.children[alphabetIndex];
+        }
+
+        rootCopy.endOfWord = false;
+    }
+
 }
