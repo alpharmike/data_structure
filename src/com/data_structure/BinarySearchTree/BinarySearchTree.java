@@ -1,4 +1,4 @@
-package BinarySearchTree;
+package com.data_structure.BinarySearchTree;
 
 public class BinarySearchTree {
 
@@ -24,7 +24,14 @@ public class BinarySearchTree {
         if (root == null) {
             return false;
         }
+        if (root.key == key) {
+            return true;
+        }
         if (key < root.key) {
+            return searchKey(root.left, key);
+        } else {
+            return searchKey(root.right, key);
+        }
     }
 
 

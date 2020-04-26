@@ -1,4 +1,4 @@
-package BinarySearchTree;
+package com.data_structure.BinarySearchTree;
 
 public class TreeNode {
     int key;

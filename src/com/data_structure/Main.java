@@ -1,10 +1,7 @@
 package com.data_structure;
 
-import BinarySearchTree.BinarySearchTree;
-import BinarySearchTree.TreeNode;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.data_structure.BinarySearchTree.BinarySearchTree;
+import com.data_structure.BinarySearchTree.TreeNode;
 
 public class Main {
 
@@ -25,6 +22,6 @@ public class Main {
         treeNode = BinarySearchTree.insertKey(treeNode, 1);
         treeNode = BinarySearchTree.insertKey(treeNode, 2);
         treeNode = BinarySearchTree.insertKey(treeNode, -1);
-        BinarySearchTree.printTree(treeNode);
+        System.out.println(BinarySearchTree.searchKey(treeNode, -1));
     }
 }
