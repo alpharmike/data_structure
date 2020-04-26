@@ -70,18 +70,15 @@ public class TrieNode {
         rootCopy.endOfWord = false;
     }
 
-    static boolean delete(TrieNode root, String key, int index) {
+    static boolean delete(TrieNode root, String key, int index) { // O(key_length)
         System.out.println(index);
         if (root == null) {
-            System.out.println("dsa");
             return false;
         } else if (index == key.length()) {
-            System.out.println("sadsad");
             if (!root.endOfWord) {
                 return false;
             }
             root.endOfWord = false;
-            System.out.println("ww");
             System.out.println(isEmpty(root));
             return isEmpty(root);
         }
